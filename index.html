@@ -8,11 +8,12 @@
     body { 
       background: #213A5C; 
       display: flex; 
-      flex-direction: column; /* Stack video and external link vertically */
+      flex-direction: column;
       align-items: center; 
       justify-content: center; 
       min-height: 100vh; 
       font-family: -apple-system, BlinkMacSystemFont, sans-serif; 
+      padding: 20px;
     }
     
     /* Layout Framework Selectors */
@@ -20,42 +21,30 @@
     #__bundler_thumbnail { position: fixed; inset: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #213A5C; z-index: 9999; transition: opacity 0.5s ease; }
     #__bundler_thumbnail svg { width: 100%; height: 100%; object-fit: contain; }
     
-    /* Embedded Module Video Container */
-    .video-container {
-      position: relative;
-      width: 100%;
-      max-width: 900px;
-      margin: 20px 20px 10px 20px; /* Reduced bottom margin */
-      aspect-ratio: 16 / 9;
-      background: #000;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-      z-index: 1;
-    }
-    .video-container iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-
-    /* Styled Direct Video Link Line */
-    .video-fallback-link {
-      color: #C9A24A;
-      font-size: 15px;
+    /* Styled Direct Video Button Action */
+    .video-action-btn {
+      display: inline-block;
+      background: #C9A24A;
+      color: #213A5C;
+      font-size: 18px;
       text-decoration: none;
-      font-weight: 500;
+      font-weight: 600;
       letter-spacing: 0.5px;
-      transition: color 0.2s ease, text-decoration 0.2s ease;
+      padding: 16px 32px;
+      border-radius: 8px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+      transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
       z-index: 2;
-      margin-bottom: 20px;
+      text-align: center;
+      max-width: 100%;
     }
-    .video-fallback-link:hover {
-      color: #F3ECE0;
-      text-decoration: underline;
+    .video-action-btn:hover {
+      background: #F3ECE0;
+      color: #213A5C;
+      transform: translateY(-2px);
+    }
+    .video-action-btn:active {
+      transform: translateY(0);
     }
   </style>
   <noscript>
@@ -67,17 +56,9 @@
 </head>
 <body>
 
-  <div class="video-container">
-    <iframe 
-      src="https://www.youtube.com/embed/5SMxQ18ojs4?rel=0&modestbranding=1" 
-      title="Habit 1: Be Proactive® (Circle of Influence)" 
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-      allowfullscreen>
-    </iframe>
-  </div>
-
-  <a class="video-fallback-link" href="https://www.youtube.com/watch?v=5SMxQ18ojs4" target="_blank" rel="noopener noreferrer">
-    👉 Can't view the video? Click here to watch Habit 1: Be Proactive directly on YouTube
+  <!-- Clean, standalone link action button replacing the iframe -->
+  <a class="video-action-btn" href="https://youtu.be/5SMxQ18ojs4?si=ntHHsXWzajq8QnRA" target="_blank" rel="noopener noreferrer">
+    ▶ Watch Habit 1: Be Proactive® on YouTube
   </a>
 
   <div id="__bundler_thumbnail">
